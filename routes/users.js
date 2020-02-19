@@ -8,7 +8,7 @@ router.get("/register", (req, res) => {
     if (!req.session.user) {
         res.status(200).render('register');
     } else {
-        res.status(401).render("Not possible as you are logged in already");
+        res.status(401).send("Not possible as you are logged in already");
     }
 });
 
@@ -18,6 +18,24 @@ router.get("/login", (req, res) => {
     } else {
         res.status(401).send("nope, logout");
     }
+});
+
+router.get('/newblog', (req, res) => {
+    if (!req.session.user) {
+        res.status(200).render("login");
+    } else {
+        res.status(401).render('newBlog');
+    }
+});
+
+router.post('/newblog', (req, res) => {
+    const { title, img, text } = req.body;
+    let errors = [];
+
+    if (!title || !text) {
+        errors.push({msg: "Please enter all compulsory fields"});
+    }
+    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, ca)";
 });
 
 router.post("/register", (req, res) => {

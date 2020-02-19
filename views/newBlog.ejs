@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+
+<h1>New Blog</h1>
+
+<form action="/users/newblog" method="POST">
+    <label for="inputTitle">Title</label>
+        <input id="inputTitle" type="text" name="title"><br>
+    <label for="inputImg">Image URL</label>
+        <input id="inputImg" type="text" name="img"><br>
+    <label for="inputText">Text</label>
+        <input id="inputText" type="text" name="text"><br>
+    <label for="inputText">Text</label>
+        <input list="browsers">
+        <datalist id="browsers">
+          <option value="Internet Explorer">
+          <option value="Firefox">
+          <option value="Google Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+    <button type="submit">Post</button>
+</form>
+
+<%- include("partials/footer") %>

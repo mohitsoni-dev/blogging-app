@@ -2,6 +2,7 @@ var express          = require("express"),
     methodOverride   = require("method-override"),
     bodyParser       = require("body-parser"),
     expressSanitizer = require("express-sanitizer"),
+    Joi              = require('joi'),
     app              = express();
 
 
@@ -10,6 +11,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
+app.use(express.json());
 
 const session = require('express-session');
 
