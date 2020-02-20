@@ -42,3 +42,25 @@ body {
     margin-right: 15%;
     float: right;
 }
+
+.tagline {
+    font-family: 'Playfair Display', serif; 
+    text-align: center;
+    font-size: 70px;
+}
+
+.registerBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 40px 15px 40px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-bottom: 12px;
+}
+.regisbtnDiv {
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: #4CAF50 ;
+}

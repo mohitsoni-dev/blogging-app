@@ -28,15 +28,6 @@ router.get('/newblog', (req, res) => {
     }
 });
 
-router.post('/newblog', (req, res) => {
-    const { title, img, text } = req.body;
-    let errors = [];
-
-    if (!title || !text) {
-        errors.push({msg: "Please enter all compulsory fields"});
-    }
-    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, ca)";
-});
 
 router.post("/register", (req, res) => {
     const { name, email, password, password2, phone } = req.body;
@@ -53,10 +44,10 @@ router.post("/register", (req, res) => {
     }
     
     mySqlConnection.query(
-    "SELECT * FROM users WHERE email = ?",
-    [email],
-    (err, rows) => {
-        if (err) res.status(500).send(err);
+        "SELECT * FROM users WHERE email = ?",
+        [email],
+        (err, rows) => {
+            if (err) res.status(500).send(err);
         else if (rows.length) errors.push({ msg: "Email already exists" });
         else if (errors.length > 0) {
             res.statusCode = 400;
@@ -75,26 +66,43 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    const { email, password } = req.body
+    const { email, password } = req.body;
     mySqlConnection.query(
-      "SELECT * FROM users WHERE email = ?",
-      [email],
-      (err, rows) => {
-        if (err) res.status(500).send(err)
-        user = rows[0]
-        if (user) {
-          const result = bcrypt.compareSync(password, user.pwdHash)
-          if (result) {
-            req.session.user = user
-            res.status(200).redirect('../dashboard')
-          } else {
-            res.status(400).send("pwd incorrect")
-          }
-        } else {
-          res.status(400).send("email doesnot exist")
-        }
-      },
-    )
+        "SELECT * FROM users WHERE email = ?",
+        [email],
+        (err, rows) => {
+            if (err) res.status(500).send(err)
+            user = rows[0]
+            if (user) {
+                const result = bcrypt.compareSync(password, user.pwdHash)
+                if (result) {
+                    req.session.user = user;
+                    res.status(200).redirect('../dashboard');
+                } else {
+                    res.status(400).send("pwd incorrect");
+                }
+            } else {
+                res.status(400).send("email doesnot exist");
+            }
+        },
+        )
+    });
+    
+router.post('/newblog', (req, res) => {
+    const { title, img, text, category } = req.body;
+    let errors = [];
+
+    if (!title || !text || !category) {
+        errors.push({msg: "Please enter all compulsory fields"});
+    }
+    var today = new Date();
+    var date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
+    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, category, blogText, likes, imgURL) VALUES ?";
+    const values2 = [[title, date, user.name, category, text, 0, img]];
+    mySqlConnection.query(sqlQuery, [values2], function(err) {
+        if (err) res.status(500).send(err);
+        else res.status(200).render("dashboard  ");
+    });
 });
 
 module.exports = router;

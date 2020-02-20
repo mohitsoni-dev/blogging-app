@@ -16,7 +16,7 @@ app.use(express.json());
 const session = require('express-session');
 
 app.use(session({
-  secret: 'seCReT',
+  secret: 'I have tropophobia',
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 3600000 }

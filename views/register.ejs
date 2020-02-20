@@ -1,19 +1,26 @@
 <%- include("partials/header") %>
 
-<h1>Sign up</h1>
-
-<form action="/users/register" method="POST">
-    <label for="inputName">Name</label>
-        <input id="inputName" type="text" name="name"><br>
-    <label for="inputEmail">Email</label>
-        <input id="inputEmail" type="email" name="email"><br>
-    <label for="inputPhone">Phone</label>
-        <input id="inputPhone" type="text" name="phone"><br>
-    <label for="inputPassword">Password</label>
-        <input id="inputPassword" type="password" name="password"><br>
-    <label for="inputPassword">Repeat Password</label>
-        <input id="inputPassword" type="password" name="password2"><br>
-    <button type="submit">Sign up</button>
-</form>
+<div class="formDiv">
+    <form action="/users/register" method="POST">
+        <div class="container">
+            <h1>Sign up</h1>
+            <label for="inputName"><strong>Name</strong></label>
+                <input id="inputName" type="text" name="name" placeholder="Enter Name">
+            <label for="inputEmail"><strong>Email</strong></label>
+                <input id="inputEmail" type="email" name="email" placeholder="Enter Email">
+            <label for="inputPhone"><strong>Phone</strong></label>
+                <input id="inputPhone" type="text" name="phone" placeholder="Enter Phone">
+            <label for="inputPassword"><strong>Password</strong></label>
+                <input id="inputPassword" type="password" name="password" placeholder="Enter Password">
+            <label for="inputPassword"><strong>Repeat Password</strong></label>
+                <input id="inputPassword" type="password" name="password2" placeholder="Confirm Password">
+            <button type="submit">Sign up</button>             
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="lowerText">Already have an account? <a href="/users/login">Sign in.</a></span>
+        </div>
+    </form>    
+</div>
 
 <%- include("partials/footer") %>
