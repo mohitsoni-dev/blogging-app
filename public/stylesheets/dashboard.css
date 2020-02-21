@@ -42,5 +42,29 @@ body {
 }
 
 .blogImages {
-  height: 360px;
+  width: 700px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#likeBtn {
+  float: right;
+}
+
+#likeBtn i:hover {
+  cursor: pointer;
+}
+
+.blogDetails {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blogDiv {
+  padding-bottom: 10px;
 }

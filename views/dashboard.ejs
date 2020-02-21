@@ -25,23 +25,28 @@
     <a href="#">Contact</a>
   </div>
 
-  <h2>Animated Sidenav Example</h2>
-  <p>Click on the element below to open the side navigation menu.</p>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
 
   <div class="container">
     <% blogs.forEach(function(blog){ %>
-      <div>
-        <h2><%= blog.title %></h2>
+      <div class="blogDiv">
+        <h2 class="blogDetails"><%= blog.title %></h2>
         <img class="blogImages" src="<%= blog.imgURL %>" alt="blogImage"><br>
-        <span>By <%= blog.author %> on <%= blog.dateofPublish %></span><br>
-        <span>Category: <%= blog.category %></span>
-        <p><%= blog.blogText.substring(0, 100) %>...</p>
-        <span>Likes: <%= blog.likes %></span>
+        <div class="blogDetails">
+          <span>By <%= blog.author %> on <%= blog.dateofPublish %></span>
+          <div id="likeBtn">
+            <i id="likeIcon" class="fas fa-thumbs-up"></i>
+            <span><%= blog.likes %> likes</span>
+          </div>
+          <br>
+          <span>Category: <%= blog.category %></span>
+          <p><%= blog.blogText.substring(0, 100) %>...</p>
+        </div>
       </div>
     <% }); %> 
   </div>
 
-<script src="scripts/dashboard.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="scripts/dashboard.js"></script>
 
 <%- include("partials/footer") %>

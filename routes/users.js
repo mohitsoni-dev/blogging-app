@@ -97,11 +97,11 @@ router.post('/newblog', (req, res) => {
     }
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
-    const sqlQuery = "INSERT INTO newblog (title, dateofPublish, author, category, blogText, likes, imgURL) VALUES ?";
+    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, category, blogText, likes, imgURL) VALUES ?";
     const values2 = [[title, date, user.name, category, text, 0, img]];
     mySqlConnection.query(sqlQuery, [values2], function(err) {
         if (err) res.status(500).send(err);
-        else res.status(200).render("dashboard");
+        else res.status(200).redirect("/dashboard");
     });
 });
 
