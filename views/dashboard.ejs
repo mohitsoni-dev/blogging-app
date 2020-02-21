@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="/stylesheets/common.css">
 </head>
@@ -27,6 +28,19 @@
   <h2>Animated Sidenav Example</h2>
   <p>Click on the element below to open the side navigation menu.</p>
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+  <div class="container">
+    <% blogs.forEach(function(blog){ %>
+      <div>
+        <h2><%= blog.title %></h2>
+        <img class="blogImages" src="<%= blog.imgURL %>" alt="blogImage"><br>
+        <span>By <%= blog.author %> on <%= blog.dateofPublish %></span><br>
+        <span>Category: <%= blog.category %></span>
+        <p><%= blog.blogText.substring(0, 100) %>...</p>
+        <span>Likes: <%= blog.likes %></span>
+      </div>
+    <% }); %> 
+  </div>
 
 <script src="scripts/dashboard.js"></script>
 

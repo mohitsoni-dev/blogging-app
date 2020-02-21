@@ -48,8 +48,8 @@ router.post("/register", (req, res) => {
         [email],
         (err, rows) => {
             if (err) res.status(500).send(err);
-        else if (rows.length) errors.push({ msg: "Email already exists" });
-        else if (errors.length > 0) {
+            else if (rows.length) errors.push({ msg: "Email already exists" });
+            else if (errors.length > 0) {
             res.statusCode = 400;
             res.send(errors);
         } else {
@@ -97,11 +97,11 @@ router.post('/newblog', (req, res) => {
     }
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
-    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, category, blogText, likes, imgURL) VALUES ?";
+    const sqlQuery = "INSERT INTO newblog (title, dateofPublish, author, category, blogText, likes, imgURL) VALUES ?";
     const values2 = [[title, date, user.name, category, text, 0, img]];
     mySqlConnection.query(sqlQuery, [values2], function(err) {
         if (err) res.status(500).send(err);
-        else res.status(200).render("dashboard  ");
+        else res.status(200).render("dashboard");
     });
 });
 
