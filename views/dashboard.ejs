@@ -40,9 +40,11 @@
           </div>
           <br>
           <span>Category: <%= blog.category %></span>
-          <p><%= blog.blogText.substring(0, 100) %>...</p>
+          <p class="blogText"><%= blog.blogText.substring(0, 100) %>...</p>
+          <a class="readMore-btn" href="/blog/<%= blog.id %> ">Read More</a>
         </div>
       </div>
+      <hr>
     <% }); %> 
   </div>
 

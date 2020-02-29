@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<div class="container showblogContainer">
+    <div class="blogshow margin-top-0 margin-bottom-0">
+        <h1 class="margin-top-0"><%= blog[0].title %></h1>
+        <h3><%= blog[0].author %> on <%= blog[0].dateofPublish %></h3>
+        <img class="blogImages showImage" src="<%= blog[0].imgURL %>" alt="blog image"> 
+        <p>
+            <%= blog[0].blogText %> 
+        </p>
+    </div>
+    
+</div>
+
+
+
+<%- include("partials/footer") %>

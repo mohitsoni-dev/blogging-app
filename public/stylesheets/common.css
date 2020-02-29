@@ -1,3 +1,7 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
 .topnav {
     background-color: #333;
     overflow: hidden;
@@ -68,10 +72,12 @@ a {
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 10px;
     margin-right: auto;
     margin-left: auto;
+    background-color: white;
 }
 @media (min-width: 768px) {
     .container {
@@ -80,11 +86,123 @@ a {
 }
 @media (min-width: 992px) {
     .container {
-        width: 970px;
+        width: 850px;
     }
 }
 @media (min-width: 1200px) {
     .container {
-        width: 1170px;
+        width: 930px;
     }
+}
+
+hr {
+    background: #f2f2f2;
+    width: 750px;
+    height: 1px;
+    opacity: 0.3;
+}
+
+.blogshow {
+    margin-top: 70px;
+    padding: 30px 50px 30px 50px;
+}
+
+.margin-top-0 {
+    margin-top: 0;
+}
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.blogImages {
+    width: 750px;
+    box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.25);
+}
+body {
+    background-color: #f2f2f2;
+  }
+  
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#likeBtn {
+  float: right;
+}
+
+#likeBtn i:hover {
+  cursor: pointer;
+}
+
+.blogDetails {
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blogDiv {
+  padding-bottom: 20px;
+  padding-top: 6px;
+}
+
+.readMore-btn {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  padding: 8px 13px;
+  border: none;
+}
+
+.blogText {
+  margin-bottom: 25px;
+}
+
+.showblogContainer {
+    margin-top: 40px;
+    padding-top: 0;
+}
+
+.showImage {
+    width: 100%;
 }

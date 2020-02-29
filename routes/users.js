@@ -90,6 +90,7 @@ router.post("/login", (req, res) => {
     
 router.post('/newblog', (req, res) => {
     const { title, img, text, category } = req.body;
+    const email = user.email;
     let errors = [];
 
     if (!title || !text || !category) {
@@ -97,8 +98,8 @@ router.post('/newblog', (req, res) => {
     }
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
-    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, category, blogText, likes, imgURL) VALUES ?";
-    const values2 = [[title, date, user.name, category, text, 0, img]];
+    const sqlQuery = "INSERT INTO blogs (title, dateofPublish, author, category, blogText, likes, imgURL, userEmail) VALUES ?";
+    const values2 = [[title, date, user.name, category, text, 0, img, email]];
     mySqlConnection.query(sqlQuery, [values2], function(err) {
         if (err) res.status(500).send(err);
         else res.status(200).redirect("/dashboard");

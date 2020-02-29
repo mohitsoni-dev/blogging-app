@@ -1,8 +1,8 @@
-body {
-    font-family: "Lato", sans-serif;
+  body {
+    background-color: #f2f2f2;
   }
   
-.sidenav {
+  .sidenav {
   height: 100%;
   width: 0;
   position: fixed;
@@ -41,10 +41,6 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
-.blogImages {
-  width: 700px;
-}
-
 img {
   display: block;
   margin-left: auto;
@@ -60,11 +56,24 @@ img {
 }
 
 .blogDetails {
-  width: 700px;
+  width: 750px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .blogDiv {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  padding-top: 6px;
+}
+
+.readMore-btn {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  padding: 8px 13px;
+  border: none;
+}
+
+.blogText {
+  margin-bottom: 25px;
 }
