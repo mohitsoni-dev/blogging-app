@@ -4,13 +4,13 @@
     <form action="/users/newblog" method="POST">
         <div class="container1">
             <h1>New Blog</h1>
-            <label for="inputTitle">Title*</label>
-            <input id="inputTitle" type="text" name="title">
-            <label for="inputImg">Image URL</label>
-            <input id="inputImg" type="text" name="img">
-            <label for="inputText">Text*</label>
-            <textarea id="inputText" name="text"></textarea>
-            <label for="inputCat">Category*</label>
+            <label for="inputTitle"><strong>Title*</strong></label>
+            <input id="inputTitle" type="text" name="title" placeholder="Title">
+            <label for="inputImg"><strong>Image URL</strong></label>
+            <input id="inputImg" type="text" name="img" placeholder="Image Url">
+            <label for="inputText"><strong>Text*</strong></label>
+            <textarea id="inputText" name="text" rows="10"></textarea>
+            <label for="inputCat"><strong>Category* </strong></label>
             <select id="inputCat" name="category">
                 <option value="Technology">Technology</option>
                 <option value="Health">Health</option>
@@ -23,7 +23,7 @@
                 <option value="Relationships">Relationships</option>
                 <option value="Politics">Politics</option>
             </select>
-        <button type="submit">Post</button>
+        <button class="lrform-btn" type="submit">Post</button>
         </div>
     </form>
 </div>

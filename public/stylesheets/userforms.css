@@ -39,6 +39,7 @@ button.lrform-btn:hover {
 /* Add padding to containers */
 .container1 {
     padding: 20px;
+    background-color: white;
 }
 
 .formDiv {

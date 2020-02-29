@@ -217,8 +217,18 @@ img {
   cursor: pointer;
   padding: 8px 13px;
   border: none;
+  margin-left: 5px;
 }
 
 .edDiv {
   display: block;
+}
+
+#inputCat {
+  margin-bottom: 15px;
+}
+
+#quotes {
+  text-align: center;
+  margin-bottom: 46.9px;
 }

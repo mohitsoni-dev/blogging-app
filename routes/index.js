@@ -2,7 +2,21 @@ const express = require('express');
 const mySqlConnection = require("../db/db");
 const router = express.Router();
 
-router.get('/', (req, res) => res.status(200).render('home'));
+let blogQuotes = [
+    ['“Don’t focus on having a great blog. Focus on producing a blog that’s great for your readers.”', 'Brian Clark'],
+    ['“Blogging is a conversation, not a code.”', 'Mike Butcher'],
+    ['“Blogging is like work, but without coworkers thwarting you at every turn.”', 'Scott Adams'] ,
+    ['“A blog is only as interesting as the interest shown in others.”', 'Lee Odden'],
+    ['“Blogging is just writing — writing using a particularly efficient type of publishing technology.”', 'Simon Dumenco'],
+    ['“Blogging is a communications mechanism handed to us by the long tail of the Internet.”', 'Tom Foremski'],
+    ['“Blogs are whatever we make them. Defining ‘Blog’ is a fool’s errand.”', 'Michael Conniff'],
+    ['“The casual conversational tone of a blog is what makes it particularly dangerous”', ' Daniel B. Beaulieu'],
+    ['“Not only are bloggers suckers for the remarkable, so are the people who read blogs.”', 'Seth Godin'],
+    ['“Blogging is hard because of the grind required to stay interesting and relevant.”', 'Sufia Tippu'],
+];
+
+
+router.get('/', (req, res) => res.status(200).render('home', {blogQuotes: blogQuotes}));
 
 router.get('/dashboard', (req, res) => {
     if (req.session.user) {
