@@ -206,3 +206,19 @@ img {
 .showImage {
     width: 100%;
 }
+
+#delete {
+  display: inline;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 8px 13px;
+  border: none;
+}
+
+.edDiv {
+  display: block;
+}

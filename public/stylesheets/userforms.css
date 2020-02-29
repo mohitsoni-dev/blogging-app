@@ -1,5 +1,5 @@
 /* Bordered form */
-form {
+form.lrform {
     border: 3px solid #f1f1f1;
 }
   
@@ -14,7 +14,7 @@ input[type=email], input[type=password], input[type=text], textarea {
 }
 
 /* Set a style for all buttons */
-button {
+button.lrform-btn {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -25,7 +25,7 @@ button {
 }
 
 /* Add a hover effect for buttons */
-button:hover {
+button.lrform-btn:hover {
     opacity: 0.8;
 }
 

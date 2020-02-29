@@ -23,12 +23,27 @@ router.get('/blog/:id', function(req, res) {
             res.status(500).redirect('/dashboard');
         } else {
             if (req.session.user) {
-                res.render('showblog', {blog: blog});  
+                let user = req.session.user;
+                res.render('showblog', {blog: blog, user: user}); 
             } else {
                 res.send('Please login to see blogs!!');
             }
         }
     });
+});
+
+router.delete('/blogs/:id', function(req, res){
+    if (req.session.user) {
+        mySqlConnection.query('DELETE FROM blogs WHERE id = ?', [req.params.id], (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect('/dashboard');
+            }
+        });        
+    } else {
+        res.render('/users/login');
+    }
 });
 
 module.exports = router;
