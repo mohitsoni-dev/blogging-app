@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<div class="topnav">
+    <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Get Blogged</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signinLink" href="/logout">Log out</a>
+</div>
+
+<div class="formDiv">
+    <form action="/blogs/<%= blog[0].id %>?_method=PUT" method="POST">
+        <div class="container1">
+            <h1>Edit blog <%= blog[0].title %></h1>
+            <label for="inputTitle"><strong>Title*</strong></label>
+            <input id="inputTitle" type="text" name="title" value="<%= blog[0].title %> ">
+            <label for="inputImg"><strong>Image URL</strong></label>
+            <input id="inputImg" type="text" name="image" value="<%= blog[0].imgURL %>">
+            <label for="inputText"><strong>Text*</strong></label>
+            <textarea id="inputText" name="body" rows="10"><%= blog[0].blogText %></textarea>
+            <label for="inputCat"><strong>Category* </strong></label>
+            <select id="inputCat" name="category">
+                <option value="Technology">Technology</option>
+                <option value="Health">Health</option>
+                <option value="Business">Business</option>
+                <option value="Food">Food</option>
+                <option value="Culture">Culture</option>
+                <option value="Travel">Travel</option>
+                <option value="Video Games">Video Games</option>
+                <option value="Science">Science</option>
+                <option value="Relationships">Relationships</option>
+                <option value="Politics">Politics</option>
+            </select>
+        <button class="lrform-btn" type="submit">Post</button>
+        </div>
+    </form>
+</div>
+
+<%- include("partials/footer") %>

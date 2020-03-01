@@ -85,8 +85,8 @@ router.post("/login", (req, res) => {
                 res.status(400).send("email doesnot exist");
             }
         },
-        )
-    });
+    )
+});
     
 router.post('/newblog', (req, res) => {
     const { title, img, text, category } = req.body;

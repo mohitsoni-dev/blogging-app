@@ -1,5 +1,13 @@
 <%- include("partials/header") %>
 
+<div class="topnav">
+    <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Get Blogged</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signinLink" href="/logout">Log out</a>
+</div>
+
 <div class="formDiv">
     <form action="/users/newblog" method="POST">
         <div class="container1">

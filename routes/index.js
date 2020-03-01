@@ -15,7 +15,6 @@ let blogQuotes = [
     ['“Blogging is hard because of the grind required to stay interesting and relevant.”', 'Sufia Tippu'],
 ];
 
-
 router.get('/', (req, res) => res.status(200).render('home', {blogQuotes: blogQuotes}));
 
 router.get('/dashboard', (req, res) => {
@@ -46,6 +45,26 @@ router.get('/blog/:id', function(req, res) {
     });
 });
 
+router.post('/blogs/:id', function(req, res) {
+    if (req.session.user) {
+        let user = req.session.user;
+        const insertQuery = 'INSERT INTO comments (comment, author, blog_id, date) VALUES ?';
+        const {comment} = req.body;
+        var today = new Date();
+        var date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
+        const data = [[comment, user.name, req.params.id, date]];
+        mySqlConnection.query(insertQuery, [data], (err, result, fields) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect('/dashboard');
+            }
+        });
+    } else {
+        res.redirect('/dashboard');
+    }
+});
+
 router.delete('/blogs/:id', function(req, res){
     if (req.session.user) {
         mySqlConnection.query('DELETE FROM blogs WHERE id = ?', [req.params.id], (err, result) => {
@@ -56,7 +75,53 @@ router.delete('/blogs/:id', function(req, res){
             }
         });        
     } else {
+        res.redirect('/users/login');
+    }
+});
+
+router.get('/blogs/:id/edit', function(req, res){
+    if (req.session.user) {
+        const searchSql = "SELECT * FROM blogs WHERE id = ?";
+        mySqlConnection.query(searchSql, [req.params.id], (err, blog) => {
+            if (err) {
+                console.log(err);
+                res.redirect('/dashboard');
+            } else {
+                res.render('editblog', {blog: blog});
+            }
+        });
+    } else {
+        res.redirect('/users/login');
+    }
+});
+
+router.put('/blogs/:id', function(req, res){
+    const { title, image, body, category } = req.body;
+    const updateQuery = 'UPDATE blogs SET title=?, category=?, blogText=?, imgURL=? WHERE id=?';
+    const data = [title, category, body, image, req.params.id];
+    if (req.session.user) {
+        mySqlConnection.query(updateQuery, data, (err, result, fields) => {
+            if (err) {
+                res.redirect('/dashboard');
+                console.log(err);
+            } else {
+                res.redirect('/dashboard');
+            }
+        });
+    } else {
         res.render('/users/login');
+    }
+});
+
+router.get('/logout', function(req, res, next) {
+    if (req.session) {
+        req.session.destroy(function(err) {
+            if(err) {
+                res.send(err);
+            } else {
+                res.redirect('/');
+            }
+        });
     }
 });
 

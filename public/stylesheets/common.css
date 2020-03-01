@@ -232,3 +232,22 @@ img {
   text-align: center;
   margin-bottom: 46.9px;
 }
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#flex-container > .flex-item {
+  flex: auto;
+  margin-top: 0;
+  margin-left: 50px;
+  margin-right: 4px;
+}
+
+#flex-container > .raw-item {
+  width: 12rem;
+  height: 41px;
+  margin-left: 4px;
+  margin-right: 50px;
+}

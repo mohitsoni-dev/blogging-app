@@ -1,5 +1,13 @@
 <%- include("partials/header") %>
 
+<div class="topnav">
+    <a id="homeNav" class="active" href="/"><i class="fas fa-blog"></i> Get Blogged</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signinLink" href="/users/register">Sign up</a>
+</div>
+
 <div class="formDiv">
     <form class="lrform" action="/users/login" method="post">
         <div class="container1">
@@ -12,8 +20,7 @@
         
             <button class="lrform-btn" type="submit">Login</button>
         </div>
-      
-        <div class="container1" style="background-color:#f1f1f1">
+        <div class="container1">
           <button type="button" class="cancelbtn">Cancel</button>
           <span class="lowerText">Doesn't have an account? <a href="/users/register">Sign up.</a></span>
         </div>

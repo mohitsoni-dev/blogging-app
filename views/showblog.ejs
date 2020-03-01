@@ -1,7 +1,15 @@
 <%- include("partials/header") %>
 
+<div class="topnav">
+    <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Get Blogged</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signinLink" href="/logout">Log out</a>
+</div>
+
 <div class="container showblogContainer">
-    <div class="blogshow margin-top-0 margin-bottom-0">
+    <div class="blogshow margin-top-0">
         <h1 class="margin-top-0"><%= blog[0].title %></h1>
         <h3><%= blog[0].author %> on <%= blog[0].dateofPublish %></h3>
         <img class="blogImages showImage" src="<%= blog[0].imgURL %>" alt="blog image"><br>
@@ -15,9 +23,16 @@
     <% } %> 
         <p><%= blog[0].blogText %></p>
     </div>
-    
-</div>
 
+    <div class="commentDiv">
+        <form action="/blogs/<%= blog[0].id %>" method="POST">
+            <div id="flex-container">
+                <input class="flex-item" id="commentInput" type="text" placeholder="Comment" name="comment">
+                <button type="submit" class="raw-item" id="comment-btn">Add New Comment</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 
 <%- include("partials/footer") %>
