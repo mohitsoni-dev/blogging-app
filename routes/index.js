@@ -30,8 +30,8 @@ router.get('/dashboard', (req, res) => {
 });
 
 router.get('/blog/:id', function(req, res) {
-    const searchSql = "SELECT * FROM blogs WHERE id = ?";
-    mySqlConnection.query(searchSql, [req.params.id], (err, blog) => {
+    const searchSql = "SELECT * FROM blogs WHERE id=?;SELECT * FROM comments WHERE blog_id=?";
+    mySqlConnection.query(searchSql, [req.params.id, req.params.id], (err, blog) => {
         if (err) {
             res.status(500).redirect('/dashboard');
         } else {
@@ -57,7 +57,7 @@ router.post('/blogs/:id', function(req, res) {
             if (err) {
                 res.send(err);
             } else {
-                res.redirect('/dashboard');
+                res.redirect('/blog/' + req.params.id);
             }
         });
     } else {

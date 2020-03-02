@@ -241,7 +241,6 @@ img {
 #flex-container > .flex-item {
   flex: auto;
   margin-top: 0;
-  margin-left: 50px;
   margin-right: 4px;
 }
 
@@ -249,5 +248,23 @@ img {
   width: 12rem;
   height: 41px;
   margin-left: 4px;
+}
+
+.commentDiv {
+  margin-bottom: 40px;
+  margin-left: 50px;
   margin-right: 50px;
+  padding-bottom: 30px;
+}
+
+#flex-container {
+  margin-bottom: 15px;
+}
+
+#comment-text {
+  display: inline-block;
+}
+
+#comment-date {
+  float: right;
 }

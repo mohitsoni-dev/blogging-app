@@ -10,27 +10,36 @@
 
 <div class="container showblogContainer">
     <div class="blogshow margin-top-0">
-        <h1 class="margin-top-0"><%= blog[0].title %></h1>
-        <h3><%= blog[0].author %> on <%= blog[0].dateofPublish %></h3>
-        <img class="blogImages showImage" src="<%= blog[0].imgURL %>" alt="blog image"><br>
-        <% if (blog[0].userEmail === user.email) { %> 
+        <h1 class="margin-top-0"><%= blog[0][0].title %></h1>
+        <h3><%= blog[0][0].author %> on <%= blog[0][0].dateofPublish %></h3>
+        <img class="blogImages showImage" src="<%= blog[0][0].imgURL %>" alt="blog image"><br>
+        <% if (blog[0][0].userEmail === user.email) { %> 
         <div class="edDiv">
-            <a class="readMore-btn" href="/blogs/<%= blog[0].id %>/edit">Edit</a>
-            <form id="delete" action="/blogs/<%= blog[0].id %>?_method=DELETE" method="POST">
+            <a class="readMore-btn" href="/blogs/<%= blog[0][0].id %>/edit">Edit</a>
+            <form id="delete" action="/blogs/<%= blog[0][0].id %>?_method=DELETE" method="POST">
                 <button class="delete-btn">Delete</button>
             </form>
         </div>
     <% } %> 
-        <p><%= blog[0].blogText %></p>
+        <p><%= blog[0][0].blogText %></p>
     </div>
 
     <div class="commentDiv">
-        <form action="/blogs/<%= blog[0].id %>" method="POST">
+        <form action="/blogs/<%= blog[0][0].id %>" method="POST">
             <div id="flex-container">
                 <input class="flex-item" id="commentInput" type="text" placeholder="Comment" name="comment">
                 <button type="submit" class="raw-item" id="comment-btn">Add New Comment</button>
             </div>
         </form>
+        <% for (let i = 0; i < blog[1].length; i++) { %>
+                <div id="comment">
+                    <strong><%= blog[1][i].author %></strong>
+                    <div id="comment-line">
+                        <div id="comment-text"><%= blog[1][i].comment %></div>
+                        <div id="comment-date"><%= blog[1][i].date %></div>
+                    </div><br> 
+                </div>   
+        <% } %>  
     </div>
 </div>
 
