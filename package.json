@@ -9,6 +9,7 @@
   "author": "Mohit Soni",
   "license": "ISC",
   "dependencies": {
+    "alert-node": "^2.1.4",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
@@ -16,7 +17,9 @@
     "express-sanitizer": "^1.0.5",
     "express-session": "^1.17.0",
     "joi": "^14.3.1",
+    "js-alert": "^1.0.4",
     "method-override": "^3.0.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "popups": "^1.1.3"
   }
 }

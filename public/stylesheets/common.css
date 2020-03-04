@@ -35,16 +35,58 @@ body {
 
 #homeNav {
     font-size: 1.3em;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-left: 0%;
+}
+
+@media (min-width: 520px) {
+  #homeNav {
+    padding-left: 25px;
+    padding-right: 25px;
+    /* margin-left: 5%; */
+  }
+}
+
+@media (min-width: 651px) {
+  #homeNav {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: 10%;
+  }
+}
+
+@media (min-width: 743px) {
+  #homeNav {
     padding-left: 25px;
     padding-right: 25px;
     margin-left: 15%;
+  }
 }
 
 #signinLink {
-    padding-right: 25px;
-    font-size: 1.3em;
+  padding-right: 25px;
+  font-size: 1.3em;
+  margin-right: 0%;
+  float: right;
+}
+
+/* @media (min-width: 520px) {
+  #signinLink {
+    : 5%;
+  }
+} */
+
+@media (min-width: 651px) {
+  #signinLink {
+    margin-right: 10%;
+  }
+}
+
+@media (min-width: 743px) {
+  #signinLink {
     margin-right: 15%;
-    float: right;
+  }
 }
 
 .tagline {
@@ -267,4 +309,14 @@ img {
 
 #comment-date {
   float: right;
+}
+
+#comment-btn {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+#noBlogH1 {
+  text-align: center;
 }

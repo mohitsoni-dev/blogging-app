@@ -15,7 +15,13 @@ let blogQuotes = [
     ['“Blogging is hard because of the grind required to stay interesting and relevant.”', 'Sufia Tippu'],
 ];
 
-router.get('/', (req, res) => res.status(200).render('home', {blogQuotes: blogQuotes}));
+router.get('/', (req, res) => {
+    if (!req.session.user) {
+        res.status(200).render('home', {blogQuotes: blogQuotes});
+    } else {
+        res.send('Logout for this');
+    }
+});
 
 router.get('/dashboard', (req, res) => {
     if (req.session.user) {
@@ -23,6 +29,18 @@ router.get('/dashboard', (req, res) => {
             mySqlConnection.query("SELECT * FROM blogs", function (err, blogs, fields) {
                 if (err) console.log(err);
                 res.status(200).render('dashboard', {blogs: blogs});
+            });
+    } else {
+        res.status(401).send('login for this');
+    }
+});
+
+router.get('/dashboard/:category', (req, res) => {
+    if (req.session.user) {
+            // Select all category blogs and print them:
+            mySqlConnection.query("SELECT * FROM blogs WHERE category=?", [req.params.category], function (err, blogs, fields) {
+                if (err) console.log(err);
+                res.status(200).render('dashboardcat', {blogs: blogs});
             });
     } else {
         res.status(401).send('login for this');
