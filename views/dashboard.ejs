@@ -1,5 +1,6 @@
 <%- include("partials/header") %>
 
+  <!-- Top Navbar -->
   <div class="topnav">
     <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Get Blogged</a>
     <a id="about-btn" href="#about">About</a>
@@ -7,6 +8,19 @@
     <a id="signinLink" href="/logout">Log out</a>
   </div>
 
+  <!-- Flash Message -->
+  <% if (message && message.length > 0) { %> 
+  <div id="flashDiv" class="flash welcome">
+    <%= message %> 
+  </div>
+<% } %>
+<% if (message2 && message2.length > 0) { %> 
+  <div id="flashDiv" class="flash welcome">
+    <%= message2 %> 
+  </div>
+<% } %>
+
+  <!-- Side Navigation Section -->
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="/dashboard">All</a>
@@ -24,6 +38,7 @@
 
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Open</span>
 
+  <!-- Blogs -->
   <% if (blogs.length == 0) { %>
     <h1 id="noBlogH1">Sorry!! No Blogs Found!!</h1>
   <% } else { %>  
@@ -33,13 +48,8 @@
           <h2 class="blogDetails"><%= blog.title %></h2>
           <img class="blogImages" src="<%= blog.imgURL %>" alt="blogImage"><br>
           <div class="blogDetails">
-            <span>By <%= blog.author %> on <%= blog.dateofPublish %></span>
-            <div id="likeBtn">
-              <i id="likeIcon" class="fas fa-thumbs-up"></i>
-              <span><%= blog.likes %> likes</span>
-            </div>
-            <br>
-            <span>Category: <%= blog.category %></span>
+            <span id="author-span">By <%= blog.author %> on <%= blog.dateofPublish %></span>
+            <span id="category-span">Category: <%= blog.category %></span>
             <p class="blogText"><%= blog.blogText.substring(0, 100) %>...</p>
             <a class="readMore-btn" href="/blog/<%= blog.id %> ">Read More</a>
           </div>
@@ -48,6 +58,8 @@
       <% }); %> 
     </div>
   <% } %> 
+
+  <!-- JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="scripts/dashboard.js"></script>
 

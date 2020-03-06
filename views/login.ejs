@@ -7,16 +7,21 @@
     <a id="signinLink" href="/users/register">Sign up</a>
 </div>
 
-<div class="formDiv">
+<!-- Flash Message -->
+<% if (message && message.length > 0) { %> 
+    <div id="flashDiv" class="flash welcome">
+      <%= message %> 
+    </div>
+<% } %> 
+
+<div class="formDivLr">
     <form class="lrform" action="/users/login" method="post">
         <div class="container1">
             <h1>Login</h1>
             <label for="inputEmail"><b>Username</b></label>
             <input id="inputEmail" type="email" placeholder="Enter Username" name="email" required>
-        
             <label for="inputPassword"><b>Password</b></label>
             <input id="inputPassword" type="password" placeholder="Enter Password" name="password" required>
-        
             <button class="lrform-btn" type="submit">Login</button>
         </div>
         <div class="container1">

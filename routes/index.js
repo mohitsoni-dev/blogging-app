@@ -1,6 +1,7 @@
-const express = require('express');
+const express         = require('express');
 const mySqlConnection = require("../db/db");
-const router = express.Router();
+const flash           = require('connect-flash');
+const router          = express.Router();
 
 let blogQuotes = [
     ['“Don’t focus on having a great blog. Focus on producing a blog that’s great for your readers.”', 'Brian Clark'],
@@ -28,7 +29,11 @@ router.get('/dashboard', (req, res) => {
             // Select all blogs and print them:
             mySqlConnection.query("SELECT * FROM blogs", function (err, blogs, fields) {
                 if (err) console.log(err);
-                res.status(200).render('dashboard', {blogs: blogs});
+                res.status(200).render('dashboard', {
+                    blogs: blogs,
+                    message: req.flash('welcome'),
+                    message2: req.flash('newBlogMsg')
+                });
             });
     } else {
         res.status(401).send('login for this');
@@ -55,7 +60,7 @@ router.get('/blog/:id', function(req, res) {
         } else {
             if (req.session.user) {
                 let user = req.session.user;
-                res.render('showblog', {blog: blog, user: user}); 
+                res.render('showblog', {blog: blog, user: user, message: req.flash('editMsg')}); 
             } else {
                 res.send('Please login to see blogs!!');
             }
@@ -123,11 +128,12 @@ router.put('/blogs/:id', function(req, res){
                 res.redirect('/dashboard');
                 console.log(err);
             } else {
-                res.redirect('/dashboard');
+                req.flash('editMsg', "Successfully edited the blog!!");
+                res.redirect('/blog/' + req.params.id);
             }
         });
     } else {
-        res.render('/users/login');
+        res.redirect('/users/login');
     }
 });
 

@@ -71,12 +71,6 @@ body {
   float: right;
 }
 
-/* @media (min-width: 520px) {
-  #signinLink {
-    : 5%;
-  }
-} */
-
 @media (min-width: 651px) {
   #signinLink {
     margin-right: 10%;
@@ -139,9 +133,15 @@ a {
 
 hr {
     background: #f2f2f2;
-    width: 750px;
+    width: 100%;
     height: 1px;
     opacity: 0.3;
+}
+
+@media (min-width: 792px) {
+  hr {
+    width: 750px;
+  }
 }
 
 .blogshow {
@@ -157,9 +157,16 @@ hr {
 }
 
 .blogImages {
-    width: 750px;
+    width: 100%;
     box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.25);
 }
+
+@media (min-width: 792px) {
+  .blogImages {
+    width: 750px;
+  }
+}
+
 body {
     background-color: #f2f2f2;
   }
@@ -209,18 +216,16 @@ img {
   margin-right: auto;
 }
 
-#likeBtn {
-  float: right;
-}
-
-#likeBtn i:hover {
-  cursor: pointer;
-}
-
 .blogDetails {
-  width: 750px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 792px) {
+  .blogDetails {
+    width: 750px;
+  }
 }
 
 .blogDiv {
@@ -319,4 +324,60 @@ img {
 
 #noBlogH1 {
   text-align: center;
+}
+
+#category-span {
+  float: right;
+}
+
+#author-span {
+  display: inline;
+}
+
+.alert-error {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+}
+
+.alert-success {
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.flash {
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.welcome {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.logout {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
 }

@@ -45,13 +45,8 @@
           <h2 class="blogDetails"><%= blog.title %></h2>
           <img class="blogImages" src="<%= blog.imgURL %>" alt="blogImage"><br>
           <div class="blogDetails">
-            <span>By <%= blog.author %> on <%= blog.dateofPublish %></span>
-            <div id="likeBtn">
-              <i id="likeIcon" class="fas fa-thumbs-up"></i>
-              <span><%= blog.likes %> likes</span>
-            </div>
-            <br>
-            <span>Category: <%= blog.category %></span>
+              <span id="author-span">By <%= blog.author %> on <%= blog.dateofPublish %></span>
+              <span id="category-span">Category: <%= blog.category %></span>
             <p class="blogText"><%= blog.blogText.substring(0, 100) %>...</p>
             <a class="readMore-btn" href="/blog/<%= blog.id %> ">Read More</a>
           </div>

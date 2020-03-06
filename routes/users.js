@@ -1,6 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcrypt");
+const express         = require("express");
+const router          = express.Router();
+const flash           = require('connect-flash');
+const bcrypt          = require("bcrypt");
 const mySqlConnection = require("../db/db");
 let user;
 
@@ -14,7 +15,7 @@ router.get("/register", (req, res) => {
 
 router.get("/login", (req, res) => {
     if (!req.session.user) {
-        res.status(200).render("login");
+        res.status(200).render("login", {message: req.flash('registerMsg')});
     } else {
         res.status(401).send("nope, logout");
     }
@@ -58,7 +59,10 @@ router.post("/register", (req, res) => {
             const values = [[name, email, phone, pwdHash]];
             mySqlConnection.query(sql, [values], function(err) {
                 if (err) res.status(500).send(err);
-                else res.status(200).send("successfully registered");
+                else {
+                    req.flash('registerMsg', "Succesfully Registered. Login by your credentials..");
+                    res.status(200).redirect("/users/login");
+                }
             });
         }
     }
@@ -77,6 +81,7 @@ router.post("/login", (req, res) => {
                 const result = bcrypt.compareSync(password, user.pwdHash)
                 if (result) {
                     req.session.user = user;
+                    req.flash('welcome', "Welcome Back " + req.session.user.name);
                     res.status(200).redirect('../dashboard');
                 } else {
                     res.status(400).send("pwd incorrect");
@@ -102,7 +107,10 @@ router.post('/newblog', (req, res) => {
     const values2 = [[title, date, user.name, category, text, 0, img, email]];
     mySqlConnection.query(sqlQuery, [values2], function(err) {
         if (err) res.status(500).send(err);
-        else res.status(200).redirect("/dashboard");
+        else {
+            req.flash('newBlogMsg', "New Blog added successfully!!");
+            res.status(200).redirect("/dashboard");
+        }
     });
 });
 

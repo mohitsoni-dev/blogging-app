@@ -7,6 +7,13 @@
     <a id="signinLink" href="/logout">Log out</a>
 </div>
 
+<!-- Flash Message -->
+<% if (message && message.length > 0) { %> 
+    <div id="flashDiv" class="flash welcome">
+      <%= message %> 
+    </div>
+<% } %>
+
 <div class="container showblogContainer">
     <div class="blogshow margin-top-0">
         <h1 class="margin-top-0"><%= blog[0][0].title %></h1>
