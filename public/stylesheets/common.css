@@ -86,7 +86,13 @@ body {
 .tagline {
     font-family: 'Playfair Display', serif; 
     text-align: center;
-    font-size: 70px;
+    font-size: 35px;
+}
+
+@media (min-width: 574px) {
+  .tagline {
+    font-size: 70px
+  }
 }
 
 .registerBtn {
@@ -380,4 +386,26 @@ img {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+}
+
+.home-container {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+td img {
+  width: 80%;
+  margin: 30px 0 0 0;
+  box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.25);
+}
+
+div.home-container table tr {
+  height: 250px;
+}
+
+#rounded-img {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  -webkit-filter: drop-shadow(2px 2px 2px #222);
+  filter: drop-shadow(2px 2px 2px #222); 
 }

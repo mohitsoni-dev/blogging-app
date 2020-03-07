@@ -23,7 +23,7 @@ router.get("/login", (req, res) => {
 
 router.get('/newblog', (req, res) => {
     if (!req.session.user) {
-        res.status(200).render("login");
+        res.status(200).redirect("/users/login");
     } else {
         res.status(401).render('newBlog');
     }
@@ -93,7 +93,7 @@ router.post("/login", (req, res) => {
     )
 });
     
-router.post('/newblog', (req, res) => {
+router.post('/newblog', (req, res) => {  
     const { title, img, text, category } = req.body;
     const email = user.email;
     let errors = [];
