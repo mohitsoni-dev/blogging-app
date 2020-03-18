@@ -15,6 +15,7 @@ This is a Blogging Site via which anyone can share their views/knowledge/thought
 
 ## User Guide
 1. ### Navigate to Login/Signup button on the home page.
+	<center><img src="https://i.ibb.co/D4TgGpC/Screenshot-from-2020-03-18-16-39-49.png"></center>
 
 2. ### Login or Sign up via forms.
 	<center><img src="https://i.ibb.co/qyjcxWm/Screenshot-from-2020-03-18-15-54-07.png" height="600"></center>
