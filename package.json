@@ -1,6 +1,9 @@
 {
   "name": "blog_app_webkriti",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.10.0"
+  },
   "description": "A simple blogging app",
   "main": "app.js",
   "scripts": {
