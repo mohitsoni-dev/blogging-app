@@ -21,7 +21,7 @@ This is a Blogging Site via which anyone can share their views/knowledge/thought
 4. Click on Read more button to open the whole blogs. You can delete/edit your blogs only.
 5. Give a comment on a blog.
 7. Create a new blog.
-8. ### Update existing Blogs.
+8. Update existing Blogs.
 
 ## Screenshots
 * [Click here](https://drive.google.com/drive/folders/1ajwuinBpj6Lp0VIfByA5WOg1U2DZYGKA?usp=sharing)
