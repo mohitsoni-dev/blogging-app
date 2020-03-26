@@ -36,7 +36,7 @@ router.get('/dashboard', (req, res) => {
                 });
             });
     } else {
-        res.status(401).send('login for this');
+        res.status(401).redirect('/users/login');
     }
 });
 
@@ -48,7 +48,7 @@ router.get('/dashboard/:category', (req, res) => {
                 res.status(200).render('dashboardcat', {blogs: blogs});
             });
     } else {
-        res.status(401).send('login for this');
+        res.status(401).redirect('/users/login');
     }
 });
 
@@ -62,7 +62,7 @@ router.get('/blog/:id', function(req, res) {
                 let user = req.session.user;
                 res.render('showblog', {blog: blog, user: user, message: req.flash('editMsg')}); 
             } else {
-                res.send('Please login to see blogs!!');
+                res.status(401).redirect('/users/login');
             }
         }
     });
