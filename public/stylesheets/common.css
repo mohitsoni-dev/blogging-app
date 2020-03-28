@@ -429,3 +429,10 @@ div.home-container table tr {
 div.home-container table tr.imageTextHome {
   height: 50px;
 }
+
+#logoutpageDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}

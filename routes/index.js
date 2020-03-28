@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     if (!req.session.user) {
         res.status(200).render('home', {blogQuotes: blogQuotes});
     } else {
-        res.send('Logout for this');
+        res.render('logoutpage');
     }
 });
 
