@@ -17,7 +17,7 @@ This is a Blogging Site via which anyone can share their views/knowledge/thought
 1. Navigate to Login/Signup button on the home page.
 2. Login or Sign up via forms.
 3. Browse blogs on the dashboard.
-   And sort them with the help of side navigation bar.
+   and sort them with the help of side navigation bar.
 4. Click on Read more button to open the whole blogs. You can delete/edit your blogs only.
 5. Give a comment on a blog.
 7. Create a new blog.
